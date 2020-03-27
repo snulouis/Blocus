@@ -1,0 +1,8 @@
+<% @comment.each do |r| %>
+  </br>
+  <%= r.content %>
+  <%= link_to "자세하기", comment_path(r)%>
+<% end %>
+</br>
+<%= link_to "만들기", new_comment_path %>
+

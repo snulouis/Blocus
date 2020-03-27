@@ -1,0 +1,13 @@
+<% puts @b_id %>
+<% if Info.where(id: @b_id).take != nil %>
+    <% if Info.find(@b_id).content != "" %>
+        $('#sns').html("<%= escape_javascript(render partial: 'sns', locals: { info_id: @b_id  })%>");
+  <% elsif Blok.find(@b_id).user_id == current_user.id %>
+    $('#sns').html("<%= escape_javascript(render partial: 'newpost', locals: { info_id: @b_id  })%>");
+  <% else %>
+      $('#sns').html('<p> 글이 없는 블록입니다.</p>');
+  <% end %>
+<% end %>
+$('#up_form2').remove()
+$('#up_form').append("<%= escape_javascript(render partial: 'next', locals: { b_id: @b_id }) %>" );
+

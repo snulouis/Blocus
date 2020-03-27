@@ -1,0 +1,10 @@
+<h1>Home#list</h1>
+<p>Find me in app/views/home/list.html.erb</p>
+<%= @events %>
+<%= Event.all %>
+</br>
+<%Event.all.each do |e| %>
+
+  <%=e.kind %>, <%= e.blok %> </br>
+
+<%end%>

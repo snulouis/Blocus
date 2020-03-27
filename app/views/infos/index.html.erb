@@ -1,0 +1,7 @@
+<% @infos.each do |r| %>
+  </br>
+  <%= link_to "#{r.content}", info_path(r)%>
+<% end %>
+</br>
+<%= link_to "만들기", new_info_path %>
+

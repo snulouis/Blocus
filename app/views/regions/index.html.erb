@@ -1,0 +1,8 @@
+
+<div class="container">
+<% @regions.each do |r| %>
+  </br>
+  <%= link_to "#{r.name}", region_path(r)%>
+<% end %>
+<%= link_to "만들기", new_region_path %>
+</div>

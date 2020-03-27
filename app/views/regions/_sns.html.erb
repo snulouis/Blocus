@@ -1,0 +1,29 @@
+<!-- 내용 -->
+<a class="pull-left" href="#">
+  <img class="media-object" src="http://placehold.it/55x55" alt="">
+</a>
+<p><strong> &nbsp <%=User.find(Blok.find(info_id).user_id).email %> </strong></p>
+<p><font size='2'> &nbsp <%= Info.find(info_id).created_at.month %>월 <%= Info.find(info_id).created_at.day %>일    </font>  </p>
+<hr>
+<%= image_tag asset_path('iu.jpg'), height: '268', width: '368' %>
+<hr>
+<div id='content'><%= Info.find(info_id).content %> </div>
+
+<% if Info.find(info_id).content == "" %>
+  <p> 글이 아직 없습니다 <p>
+  <%= render partial: 'newpost', locals: {info_id: info_id}%>
+<% end %>
+
+<hr>
+<!-- 댓글 -->
+<div id="post_list">
+  <% Info.find(info_id).comments.each do |r| %>
+    <p> <%= r.content %> </p>
+    </br>
+  <% end %>
+</div>
+<div class="row">
+<%= form_tag regions_replypost_path(info_id: info_id), method: "POST", remote: true do %>
+    <input type="text" class="form-control" name="reply" id="reply" placeholder="댓글을 입력하세요.">
+<% end %>
+</div>

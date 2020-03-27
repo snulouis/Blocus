@@ -1,0 +1,8 @@
+<% @events.each do |r| %>
+  </br>
+  <%= r.lat %>,  <%= r.lng%>
+  <%= link_to "자세하기", event_path(r)%>
+<% end %>
+</br>
+<%= link_to "만들기", new_event_path %>
+
